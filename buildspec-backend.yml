@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - mkdir -p build/backend
+      - cp -r backend/* build/backend/
+
+artifacts:
+  base-directory: build
+  files:
+    - 'backend/**'
+  discard-paths: yes
+

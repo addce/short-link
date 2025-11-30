@@ -1,0 +1,27 @@
+version: 0.0
+os: linux
+files:
+  # 把 artifact 里的所有文件全部放到 EC2 的 /home/ec2-user/short-link-backend 目录
+  - source: /
+    destination: /home/ec2-user/short-link-backend
+
+hooks:
+  # 1. 停止旧的进程（可选，但强烈推荐）
+  BeforeInstall:
+    - location: deploy-scripts/stop_server.sh
+      timeout: 300
+      runas: ec2-user
+
+  # 2. 安装依赖（生产环境推荐用 npm ci）
+  AfterInstall:
+    - location: deploy-scripts/install_dependencies.sh
+      timeout: 600
+      runas: ec2-user
+
+  # 3. 启动服务（推荐用 pm2，永远不会挂掉）
+  ApplicationStart:
+    - location: deploy-scripts/start_server.sh
+      timeout: 300
+      runas: ec2-user
+
+
