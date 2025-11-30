@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Short Link Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+        }
+
+        body {
+            padding: 16px 32px;
+        }
+
+        .header {
+            margin-bottom: 32px;
+        }
+
+        .content {
+            background-color: gainsboro;
+            padding: 32px;
+            border-radius: 16px;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+
+        .search-box {
+            margin-bottom: 16px;
+        }
+
+        .result {
+            font-size: 32px;
+        }
+
+        .result :link, .result :visited {
+            color: green;
+        }
+
+        .result :hover {
+            color: #004a00;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="header">
+        <h1>Short Link Service</h1>
+    </div>
+    <div class="content">
+        <div class="search-box">
+            <label for="link">Link</label>
+            <input type="text" name="link" id="link">
+            <button id="btn">Generate</button>
+        </div>
+        <div class="result">
+            <a href="#" id="result" target="_blank"></a>
+        </div>
+    </div>
+</div>
+<script>
+    const btn = document.getElementById('btn');
+    const txt = document.getElementById('link');
+    const result = document.getElementById('result');
+
+    btn.addEventListener('click', async function () {
+        try {
+            const link = txt.value.trim();
+            const response = await (await fetch('http://localhost:3000/short-link', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    link
+                }),
+                credentials: "omit",
+                mode: "cors"
+            })).json();
+
+            const token = response.token;
+            const short_link = "http://localhost:3000/" + token;
+            result.innerText = short_link;
+            result.href = short_link;
+        } catch (e) {
+            alert('something went wrong')
+        }
+    });
+</script>
+</body>
+</html>
