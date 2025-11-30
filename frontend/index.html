@@ -71,7 +71,7 @@
     btn.addEventListener('click', async function () {
         try {
             const link = txt.value.trim();
-            const response = await (await fetch('http://localhost:3000/short-link', {
+            const response = await (await fetch('http://13.58.176.19:3000/short-link', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
