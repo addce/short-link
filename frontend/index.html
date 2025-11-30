@@ -84,15 +84,13 @@
             })).json();
 
             const token = response.token;
-            const short_link = "http://localhost:3000/" + token;
+            const short_link = "http://13.58.176.19:3000/" + token;
             result.innerText = short_link;
             result.href = short_link;
         } catch (e) {
             alert('something went wrong')
         }
     });
-
-//     test aws front end deploy pipeline
 </script>
 </body>
 </html>
