@@ -1,4 +1,7 @@
 #!/bin/bash
+
+echo "PATH=$PATH"
+
 cd /home/ec2-user/short-link-backend/backend
 
 # 生产环境清理并重新安装（比 npm install 更可靠）
