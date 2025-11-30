@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ec2-user/short-link-backend
+cd /home/ec2-user/short-link-backend/backend
 
 # 全局安装 pm2（只需第一次）
 pm2 -v >/dev/null 2>&1 || npm install -g pm2

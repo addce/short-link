@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ec2-user/short-link-backend
+cd /home/ec2-user/short-link-backend/backend
 
 # 生产环境清理并重新安装（比 npm install 更可靠）
 rm -rf node_modules package-lock.json
