@@ -15,7 +15,7 @@ hooks:
   AfterInstall:
     - location: deploy-scripts/install_dependencies.sh
       timeout: 600
-      runas: ec2-user
+      runas: root
 
   # 3. 启动服务（推荐用 pm2，永远不会挂掉）
   ApplicationStart:
