@@ -7,7 +7,7 @@ A Short Link Service
 ### How to run backend
 
 - change dir`cd backend`
-- install `npm i`
+- install dependencies `npm i`
 - run test  `npm test`
 - start service  `npm start`
 
@@ -22,14 +22,15 @@ A Short Link Service
 
 #### Front end
 
-backend's file contains in directory `frontend`
+Frontend's file contains in directory `frontend`
 
 pure static file
 
 #### Back end
 
-backend's file contains in directory `backend`
+Backend's file contains in directory `backend`
 
-express js
-node
-sqlite
+#### Software requirements
+
+- node  (running backend server)
+- python (using http.server module host static file, you can use anything other tool you like)
