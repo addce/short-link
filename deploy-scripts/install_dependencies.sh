@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "PATH=$PATH"
+export PATH="/home/ec2-user/node-v24.11.1-linux-x64/bin:$PATH"
 
 cd /home/ec2-user/short-link-backend/backend
 

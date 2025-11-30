@@ -1,4 +1,7 @@
 #!/bin/bash
+
+export PATH="/home/ec2-user/node-v24.11.1-linux-x64/bin:$PATH"
+
 cd /home/ec2-user/short-link-backend/backend
 
 # 全局安装 pm2（只需第一次）
