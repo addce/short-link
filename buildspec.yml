@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - mkdir -p build/frontend
+      - cp -r frontend/* build/frontend/
+
+artifacts:
+  base-directory: build
+  files:
+    - 'frontend/**'
+  discard-paths: yes
+
