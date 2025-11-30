@@ -3,7 +3,7 @@ import {to_num, to_a_token} from './id.js'
 
 
 function run_with_db(f) {
-    const db = new sqlite.DatabaseSync('short-link-service.sqlite3')
+    const db = new sqlite.DatabaseSync('/home/ec2-user/short-link-service.sqlite3')
     try {
         return f(db);
     } finally {
